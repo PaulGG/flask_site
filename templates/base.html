@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block body_attribs %}
-<body class="dark"></body>
+class="dark" 
 {% endblock %}
 
 {% block scripts %}
@@ -76,4 +76,30 @@
     </div>
   </nav>
 </div>
+{% endblock %}
+
+{% block content %}
+<div class="font container text-light">
+{% block extended_content %}{% endblock %}
+</div>
+<footer class="footer font text-light dark">
+    <div class="container">
+      <span class="text-muted">
+        Copyright © <a href="https://paul.systems">Paul Gellai</a>, 2019. All rights reserved. <input type="checkbox" aria-label="Light or Dark Mode"><span> Dark Theme</span>
+      </span>
+      
+
+</footer>
+<!--<div class="font text-light card bg-dark">
+    <div class="card-header">
+      Paul's Flask Site
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+        
+      </blockquote>
+    </div>
+  </div>
+-->
 {% endblock %}
