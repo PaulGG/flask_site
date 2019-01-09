@@ -1,10 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container">
-    <h1 class="font text-light bg-dark">Sign In</h1>
+<div class="font container text-light">
+    <h1 class="text-light bg-dark">Sign In</h1>
     <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                    <li class="text-light">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
         <p class="text-light">
             {{ form.username.label }}<br>
             {{ form.username(size=32) }}
@@ -31,5 +40,6 @@
             {{ form.submit() }}
         </p>
     </form>
+    <h2>Don't have an account?</h2><a href="/register">Register here!</a>
 </div>
 {% endblock %}
