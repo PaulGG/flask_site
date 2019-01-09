@@ -1,4 +1,4 @@
-from flask_site import db, app, bcrypt, login
+from flask_site import db, app, argon2, login
 from flask_login import UserMixin
 from datetime import datetime
 
@@ -14,10 +14,10 @@ class User(UserMixin, db.Model):
     posts = db.relationship("Post", backref="author", lazy="dynamic")
 
     def set_password(self, password):
-        self.password_hash = bcrypt.generate_password_hash(password)
+        self.password_hash = argon2.generate_password_hash(password)
 
     def check_password(self, password):
-        return bcrypt.check_password_hash(self.password_hash, password)
+        return argon2.check_password_hash(self.password_hash, password)
 
     def __repr__(self):
         return "<User {}>".format(self.username)

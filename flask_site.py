@@ -4,7 +4,8 @@ from flask import render_template
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from flask_bcrypt import Bcrypt
+#from flask_bcrypt import Bcrypt
+from flask_argon2 import Argon2
 from flask_login import LoginManager
 
 def create_app():
@@ -16,7 +17,8 @@ app = create_app()
 app.config.from_object(Config)
 db = SQLAlchemy(app)
 login = LoginManager(app)
-bcrypt = Bcrypt(app)
+#bcrypt = Bcrypt(app)
+argon2 = Argon2(app)
 migrate = Migrate(app, db)
 
 from app import routes, models
