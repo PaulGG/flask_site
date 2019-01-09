@@ -20,7 +20,7 @@ class="dark"
 
 {% block navbar %}
 <div class="font container">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg" id="navbar">
     <a class="navbar-brand" href="{{ url_for('index') }}">Paul's Flask Site</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -79,18 +79,16 @@ class="dark"
 {% endblock %}
 
 {% block content %}
-<div class="font container text-light">
+<div class="font container" id="econtent">
 {% block extended_content %}{% endblock %}
 </div>
-<footer class="footer font text-light dark">
+<footer class="footer font text-light dark" id="footer">
     <div class="container">
       <span class="text-muted">
-        Copyright © <a href="https://paul.systems">Paul Gellai</a>, 2019. All rights reserved. <input type="checkbox" aria-label="Light or Dark Mode"><span> Dark Theme</span>
+        Copyright © <a href="https://paul.systems">Paul Gellai</a>, 2019. All rights reserved. <input type="checkbox" name="theme" id="theme" aria-label="Light or Dark Mode" onclick="toggleTheme()"><span id="themeText"> Dark Theme</span> 
       </span>
-      
-
 </footer>
-<!--<div class="font text-light card bg-dark">
+<!--<div class="font text-light card bg-dark">  
     <div class="card-header">
       Paul's Flask Site
     </div>
