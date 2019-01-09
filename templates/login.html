@@ -2,19 +2,19 @@
 
 {% block content %}
 <div class="font container text-light">
-    <h1 class="text-light bg-dark">Sign In</h1>
+    <h1>Sign In</h1>
     <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 <ul>
                     {% for message in messages %}
-                    <li class="text-light">{{ message }}</li>
+                    <li>{{ message }}</li>
                     {% endfor %}
                 </ul>
             {% endif %}
         {% endwith %}
-        <p class="text-light">
+        <p>
             {{ form.username.label }}<br>
             {{ form.username(size=32) }}
             {% for error in form.username.errors %}
@@ -23,7 +23,7 @@
                 </span>
             {% endfor %}
         </p>
-        <p class="text-light">
+        <p>
             {{ form.password.label }}<br>
             {{ form.password(size=32) }}
             {% for error in form.password.errors %}
@@ -32,11 +32,11 @@
                 </span>
             {% endfor %}
         </p>
-        <p class="text-light">
+        <p>
             {{ form.remember_me() }}
             {{ form.remember_me.label }}
         </p>    
-        <p class="text-light">
+        <p>
             {{ form.submit() }}
         </p>
     </form>

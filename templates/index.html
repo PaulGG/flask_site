@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="container">
+    <div class="font text-light container">
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 <ul>
                     {% for message in messages %}
-                    <li class="text-light">{{ message }}</li>
+                    <li>{{ message }}</li>
                     {% endfor %}
                 </ul>
             {% endif %}
         {% endwith %}
-        <h1 class="font text-light">Hello there</h1>
+        <h1>Hello there</h1>
     </div>
 {% endblock %}
 

@@ -19,7 +19,7 @@
 {% endblock %}
 
 {% block navbar %}
-<div class="container">
+<div class="font container">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="{{ url_for('index') }}">Paul's Flask Site</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,15 +27,31 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <!--TODO: Make 'active' class in each nav item actually the page that the user is on.-->
+        {% if request.path == "/" or request.path == "/index" %}
         <li class="nav-item active">
+        {% else %}
+        <li class="nav-item">
+        {% endif %}
           <a class="nav-link" href="{{ url_for('index') }}">Home <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item"></li>
+        {% if request.path == "/login" %}
+        <li class="nav-item active">
+        {% else %}
+        <li class="nav-item">
+        {% endif %}
         {% if current_user.is_anonymous %}
           <a class="nav-link" href="{{ url_for('login') }}">Login</a>
         {% else %}
           <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+        {% endif %}
+        </li>
+        {% if current_user.is_anonymous %}
+          {% if request.path == "/register" %}
+            <li class="nav-item active">
+            {% else %}
+            <li class="nav-item">
+          {% endif %}
+          <a class="nav-link" href=" {{ url_for('register') }}">Register</a>
         {% endif %}
         </li>
         <li class="nav-item dropdown">
