@@ -1,0 +1,16 @@
+body.dark {
+    background-color: #343A40;
+}
+
+.font {
+    font-family: 'Lato', sans-serif;
+}
+
+h1.error {
+    font-size: 60px;
+    font-family: 'Shadows Into Light', cursive;
+}
+
+h2.error {
+    font-family: 'Shadows Into Light', cursive;
+}
