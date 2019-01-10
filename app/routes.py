@@ -1,8 +1,10 @@
 from flask_site import app, db
 from flask import render_template, flash, redirect, url_for
-from flask_login import current_user, login_user, logout_user
+from flask_login import current_user, login_user, logout_user, login_required
 from app.forms import LoginForm, RegistrationForm, PostForm
 from app.models import User, Post
+import re
+import copy
 
 @app.route("/", methods=["GET", "POST"])
 @app.route("/index", methods=["GET", "POST"])
@@ -15,7 +17,12 @@ def index():
         flash("Post successful.", "success")
         return redirect(url_for("index"))
     posts = reversed(Post.query.all())
-    return render_template("index.html", form=form, posts=posts)
+    posts_iterable = copy.copy(posts)
+    images = {}
+    for p in posts_iterable:
+        links = re.findall(r"(https?://[^\s]+)", p.body)
+        images[p] = links
+    return render_template("index.html", form=form, posts=posts, images=images)
     #return "Hello World!"
     
 @app.errorhandler(404)
@@ -56,3 +63,15 @@ def logout():
     logout_user()
     flash("You have successfully logged out.", "success")
     return redirect(url_for('index'))
+
+@app.route("/user/<username>")
+@login_required
+def profile(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    posts = reversed(list(user.posts))
+    posts_iterable = copy.copy(posts)
+    images = {}
+    for p in posts_iterable:
+        links = re.findall(r"(https?://[^\s]+)", p.body)
+        images[p] = links
+    return render_template("profile.html", title="Profile", posts=posts, images=images)

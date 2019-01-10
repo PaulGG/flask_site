@@ -11,6 +11,11 @@ body {
     margin-bottom: 60px; /* Margin bottom by footer height */
 }
 
+img{
+    width:100%;
+    max-width:600px;
+}
+
 .footer {
     position: absolute;
     bottom: 0;
@@ -60,3 +65,4 @@ p {
 .invalid-feedback {
     visibility: visible;
 }
+

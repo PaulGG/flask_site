@@ -4,6 +4,7 @@ var item = localStorage.getItem("themeSetting")
 var navbar = document.getElementById("navbar")
 var econtent = document.getElementById("econtent")
 var footer = document.getElementById("footer")
+var cards = document.getElementsByClassName("card")
 
 if (item == "dark") {
     button.checked = true
@@ -22,6 +23,7 @@ for (var i = 0; i < invalidFeedbackElements.length; i++) {
     invalidFeedbackElements[i].classList.add("d-block")
 }
 
+
 function toggle() {
     body.classList.toggle("dark")
     navbar.classList.toggle("navbar-dark")
@@ -29,6 +31,9 @@ function toggle() {
     econtent.classList.toggle("text-light")
     footer.classList.toggle("dark")
     button.classList.toggle("btn-dark")
+    for (var i = 0; i < cards.length; i++) {
+        cards[i].classList.toggle("bg-dark")
+    }
 }
 
 function toggleTheme() {
@@ -44,4 +49,9 @@ function toggleTheme() {
         //button.classList.add("btn-dark")
     }
     toggle()
+}
+
+function deleteBrokenImage(image) {
+    var img = document.getElementById(image)
+    img.parentNode.removeChild(img)
 }
