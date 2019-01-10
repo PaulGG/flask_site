@@ -23,7 +23,6 @@ for (var i = 0; i < invalidFeedbackElements.length; i++) {
     invalidFeedbackElements[i].classList.add("d-block")
 }
 
-
 function toggle() {
     body.classList.toggle("dark")
     navbar.classList.toggle("navbar-dark")
