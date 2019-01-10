@@ -26,45 +26,6 @@
         {{ wtf.quick_form(form) }}
     </div>
 </div>
-<!--
-<form action="" method="post" novalidate>
-    {{ form.hidden_tag() }}
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <ul>
-                {% for message in messages %}
-                <li>{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
-    <p>
-        {{ form.username.label }}<br>
-        {{ form.username(size=32) }}
-        {% for error in form.username.errors %}
-            <span class="text-danger">
-                {{ error }}
-            </span>
-        {% endfor %}
-    </p>
-    <p>
-        {{ form.password.label }}<br>
-        {{ form.password(size=32) }}
-        {% for error in form.password.errors %}
-            <span class="text-danger">
-                {{ error }}
-            </span>
-        {% endfor %}
-    </p>
-    <p>
-        {{ form.remember_me() }}
-        {{ form.remember_me.label }}
-    </p>    
-    <p>
-        {{ form.submit() }}
-    </p>
-</form>
--->
 <h2>Don't have an account? <a href="/register">Register here!</a></h2>
 <br>
 {% endblock %}

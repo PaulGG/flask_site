@@ -19,24 +19,6 @@
         </div>
     </div>
     <br>
-    <!--
-<form action="" method="post">
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.post_box.label }}<br>
-            {{ form.post_box(cols="50", rows="5") }}
-            {% for error in form.post_box.errors %}
-            <span class="text-danger">
-                {{ error }}
-            </span>
-        {% endfor %}
-        </p>
-        <p>
-            {{ form.submit }}
-        </p>
-    </form>
-    -->
-    
     {% else %}
     <h4>To make a post, please login.</h4>
     {% endif %}
@@ -55,13 +37,7 @@
         </blockquote>
     </div>
     </div>
-    <br>
-    <!--
-    <p>
-        <b><i>{{ post.author.username }}</i> says <i>{{ moment(post.timestamp).calendar() }}</i>:</b><br>
-        {{ post.body }}
-    </p>
-    -->    
+    <br>    
     {% endfor %}
 {% endblock %}
 

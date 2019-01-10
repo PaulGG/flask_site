@@ -12,7 +12,6 @@
         {% endif %}
     {% endwith %}
     <h1>Hello there {{current_user.username}}!</h1>
-    
     {% for post in posts %}
     <div class="card font">
     <div class="card-header">
@@ -28,13 +27,7 @@
         </blockquote>
     </div>
     </div>
-    <br>
-    <!--
-    <p>
-        <b><i>{{ post.author.username }}</i> says <i>{{ moment(post.timestamp).calendar() }}</i>:</b><br>
-        {{ post.body }}
-    </p>
-    -->    
+    <br>   
     {% endfor %}
 {% endblock %}
 

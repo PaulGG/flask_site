@@ -40,13 +40,9 @@ function toggleTheme() {
     if (localStorage.getItem("themeSetting") == "light") {
         localStorage.setItem("themeSetting", "dark")
         button.innerHTML = " Dark Mode"
-        //button.classList.add("btn-light")
-        //button.classList.remove("btn-dark")
     } else {
         localStorage.setItem("themeSetting", "light")
         button.innerHTML = " Light Mode"
-        //button.classList.remove("btn-light")
-        //button.classList.add("btn-dark")
     }
     toggle()
 }

@@ -83,14 +83,6 @@
 
 {% block content %}
 <div class="container" id="econtent">
-  <!--{% with messages = get_flashed_messages() %}
-  {% if messages %}
-      {% for message in messages %}
-      <div class="alert alert-info" role="alert">{{ message }}</div>
-      {% endfor %}
-  {% endif %}
-  {% endwith %}
-  -->
   {% block extended_content %}{% endblock %}
 </div>
 <footer class="footer font light" id="footer">
@@ -99,16 +91,4 @@
         Copyright © <a href="https://paul.systems">Paul Gellai</a>, 2019. All rights reserved. <button class="btn btn-dark" type="button" id="theme" name="theme" onclick="toggleTheme()">Light Theme</button>
       </span>
 </footer>
-<!--<div class="font text-light card bg-dark">  
-    <div class="card-header">
-      Paul's Flask Site
-    </div>
-    <div class="card-body">
-      <blockquote class="blockquote mb-0">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-        
-      </blockquote>
-    </div>
-  </div>
--->
 {% endblock %}
