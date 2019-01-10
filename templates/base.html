@@ -9,10 +9,6 @@
 <link rel="stylesheet" href="{{ url_for('.static', filename='css/titatoggle.css') }}">
 {% endblock %}
 
-{% block body_attribs %}
-class="dark" 
-{% endblock %}
-
 {% block scripts %}
 <script src="{{ url_for('.static', filename='js/main.js') }}"></script>
 {{super()}}
@@ -82,7 +78,7 @@ class="dark"
 <div class="font container" id="econtent">
 {% block extended_content %}{% endblock %}
 </div>
-<footer class="footer font text-light dark" id="footer">
+<footer class="footer font light" id="footer">
     <div class="container">
       <span class="text-muted">
         Copyright © <a href="https://paul.systems">Paul Gellai</a>, 2019. All rights reserved. <input type="checkbox" name="theme" id="theme" aria-label="Light or Dark Mode" onclick="toggleTheme()"><span id="themeText"> Dark Theme</span> 
