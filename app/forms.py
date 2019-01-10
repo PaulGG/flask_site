@@ -27,6 +27,22 @@ class RegistrationForm(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError('Please use a different email address.')
+    
+    def validate_password(self, password):
+        pwd = str(password.data) 
+        if "password" in pwd.lower():
+            raise ValidationError("For the love of God. Why the hell would you use the password 'password'? Hell no. Not here you won't. Change it.")
+        elif len(pwd) >= 8 and any(ch.isupper() for ch in pwd) and any(ch.islower() for ch in pwd) and any(ch.isdigit() for ch in pwd):
+            file = open("/var/www/html/flask_site/app/cracked_passwords.txt", "r")
+            for l in file:
+                if pwd in l:
+                    file.close()
+                    raise ValidationError("Your password meets the basic requirements, but was found in a cracked password database. Please use a different one.")
+            else:
+                file.close()
+                return
+        else:
+            raise ValidationError("Your password must be at least 8 characters long, have a least one lowercase letter, at least one uppercase letter, and at least one number.")
 
 class PostForm(FlaskForm):
     post_box = TextAreaField("Insert your post here", widget=TextArea(), validators=[DataRequired()])
