@@ -4,15 +4,22 @@ var item = localStorage.getItem("themeSetting")
 var navbar = document.getElementById("navbar")
 var econtent = document.getElementById("econtent")
 var footer = document.getElementById("footer")
-var theme_text = document.getElementById("themeText")
 
 if (item == "dark") {
     button.checked = true
     toggle()
-    theme_text.textContent = " Dark Mode"
+    button.innerHTML = " Dark Mode"
 } else {
     button.checked = false
-    theme_text.textContent = " Light Mode"
+    button.innerHTML = " Light Mode"
+}
+
+/*  This is a really annoying thing I had to do to hotfix bootstrap because for some stupid reason, bootstrap refuses to render
+    'invalid-feedback' elements without having 'd-block' added to them. Idiocy. This has been a reported bug for a while.
+*/
+var invalidFeedbackElements = document.getElementsByClassName("invalid-feedback")
+for (var i = 0; i < invalidFeedbackElements.length; i++) {
+    invalidFeedbackElements[i].classList.add("d-block")
 }
 
 function toggle() {
@@ -21,15 +28,20 @@ function toggle() {
     navbar.classList.toggle("bg-dark")
     econtent.classList.toggle("text-light")
     footer.classList.toggle("dark")
+    button.classList.toggle("btn-dark")
 }
 
 function toggleTheme() {
-    if (button.checked) {
+    if (localStorage.getItem("themeSetting") == "light") {
         localStorage.setItem("themeSetting", "dark")
-        theme_text.textContent = " Dark Mode"
+        button.innerHTML = " Dark Mode"
+        //button.classList.add("btn-light")
+        //button.classList.remove("btn-dark")
     } else {
         localStorage.setItem("themeSetting", "light")
-        theme_text.textContent = " Light Mode"
+        button.innerHTML = " Light Mode"
+        //button.classList.remove("btn-light")
+        //button.classList.add("btn-dark")
     }
     toggle()
 }

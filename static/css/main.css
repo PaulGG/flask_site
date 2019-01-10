@@ -1,5 +1,5 @@
 body.dark {
-    background-color: #343A40;
+    background-color: #2B3035;
 }
 
 /* for bootstrap sticky header */
@@ -43,4 +43,20 @@ h1.error {
 
 h2.error {
     font-family: 'Shadows Into Light', cursive;
+}
+
+p {
+    overflow-wrap: break-word;
+}
+
+.container-fluid {
+    padding: 0px;
+}
+
+.light-nav {
+    background-color: #e9e9e9;
+}
+
+.invalid-feedback {
+    visibility: visible;
 }

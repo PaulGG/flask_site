@@ -1,5 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField
+from wtforms.widgets import TextArea
 from wtforms.validators import DataRequired, ValidationError, Email, EqualTo
 from app.models import User
 
@@ -27,3 +28,10 @@ class RegistrationForm(FlaskForm):
         if user is not None:
             raise ValidationError('Please use a different email address.')
 
+class PostForm(FlaskForm):
+    post_box = TextAreaField("Insert your post here", widget=TextArea(), validators=[DataRequired()])
+    submit = SubmitField("Post")
+    
+    def validate_post_box(self, post_box):
+        if len(post_box.data) > 280:
+            raise ValidationError("Your post cannot be longer than 280 characters.")

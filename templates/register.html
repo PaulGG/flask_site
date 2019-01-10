@@ -1,7 +1,13 @@
 {% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
 
 {% block extended_content %}
-	<h1>Register</h1>
+	<div class="row">
+        <div class="col-md-4">
+            {{ wtf.quick_form(form) }}
+        </div>
+    </div>
+	<!--	
 	<form action="" method="post">
 		{{ form.hidden_tag() }}
 		<p>
@@ -34,5 +40,6 @@
 		</p>
 		<p>{{ form.submit() }}</p>
 	</form>
+	-->
 	<p>I will never send you emails (why would I?) and your password is securely hashed using Argon2. However, please don't use the same password you've used on other sites for this one. It's bad practice.</p>
 {% endblock %}
