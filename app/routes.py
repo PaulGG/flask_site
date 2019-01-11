@@ -30,6 +30,10 @@ def index():
 def page_not_found(e):
     return render_template("404.html"), 404
 
+@app.errorhandler(500)
+def big_error(e):
+    return render_template("500.html"), 500
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if current_user.is_authenticated:
@@ -86,7 +90,7 @@ def reset_password_request():
         user = User.query.filter_by(email=form.email.data).first()
         if user:
             send_password_reset_email(user)
-        flash("Please check your email to reset your password.", "success")
+        flash("If you have an account, please check your email to reset your password.", "success")
         return redirect(url_for("login"))
     return render_template("reset_password_request.html", title="Reset Password", form=form)
 
