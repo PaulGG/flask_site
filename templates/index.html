@@ -31,7 +31,7 @@
         <blockquote class="blockquote mb-0">
         <p>{{ post.body }}</p>
         {% for i in images[post] %}
-        <img src="{{ i }}" class="card-img" id="{{ i }}" onerror="deleteBrokenImage('{{ i }}')">
+        <img src="{{ i }}" class="card-img" id="{{ i }}">
         {% endfor %}
         <footer class="blockquote-footer"><cite title="Source Title">{{ post.author.username }}</cite></footer>
         </blockquote>

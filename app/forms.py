@@ -51,3 +51,12 @@ class PostForm(FlaskForm):
     def validate_post_box(self, post_box):
         if len(post_box.data) > 280:
             raise ValidationError("Your post cannot be longer than 280 characters.")
+
+class ResetPasswordRequestForm(FlaskForm):
+    email = StringField("Email", validators=[DataRequired(), Email()])
+    submit = SubmitField("Request Password Reset")
+
+class ResetPasswordForm(FlaskForm):
+    password = PasswordField("Password", validators=[DataRequired()])
+    password2 = PasswordField("Confirm Password", validators=[DataRequired(), EqualTo("password")])
+    submit = SubmitField("Reset Password")
