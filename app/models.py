@@ -1,4 +1,4 @@
-from flask_site import db, app, argon2, login
+from app import db, app, argon2, login
 from flask_login import UserMixin
 from datetime import datetime
 from time import time

@@ -1,0 +1,69 @@
+body.dark {
+    background-color: #2B3035;
+}
+
+/* for bootstrap sticky header */
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin-bottom: 60px; /* Margin bottom by footer height */
+}
+
+img{
+    width:100%;
+    max-width:400px;
+    max-height: 600px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px; /* Set the fixed height of the footer here */
+    line-height: 60px; /* Vertically center the text there */    
+}
+
+footer.light {
+    background-color: #f5f5f5;
+}
+
+footer.dark {
+    background-color: #212528;
+}
+/* end sticky header */
+
+.darker {
+    background-color: #212528;
+}
+
+.font {
+    font-family: 'Lato', sans-serif;
+}
+
+h1.error {
+    font-size: 60px;
+    font-family: 'Shadows Into Light', cursive;
+}
+
+h2.error {
+    font-family: 'Shadows Into Light', cursive;
+}
+
+p {
+    overflow-wrap: break-word;
+}
+
+.container-fluid {
+    padding: 0px;
+}
+
+.light-nav {
+    background-color: #e9e9e9;
+}
+
+.invalid-feedback {
+    visibility: visible;
+}
+

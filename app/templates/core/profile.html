@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block extended_content %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-success" role="alert">
+                {{ message }}
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <h1>Hello there {{current_user.username}}!</h1>
+    {% for post in posts %}
+    <div class="card font">
+    <div class="card-header">
+        {{ moment(post.timestamp).calendar() }}
+    </div>
+    <div class="card-body">
+        <blockquote class="blockquote mb-0">
+        <p>{{ post.body }}</p>
+        {% for i in images[post] %}
+        <img src="{{ i }}" class="card-img" id="{{ i }}" onerror="deleteBrokenImage('{{ i }}')">
+        {% endfor %}
+        <footer class="blockquote-footer"><cite title="Source Title">{{ post.author.username }}</cite></footer>
+        </blockquote>
+    </div>
+    </div>
+    <br>   
+    {% endfor %}
+{% endblock %}
+
