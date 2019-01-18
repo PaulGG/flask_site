@@ -67,3 +67,43 @@ p {
     visibility: visible;
 }
 
+.custom-center {
+    /*
+    display: block;
+    margin-left: auto;
+    width: 50%;
+    */
+    margin-right: auto;
+    max-height: 100%;
+    max-width: 100%;
+    
+}
+
+.custom-image { 
+    position: relative; 
+    width: 100%; /* for IE 6 */
+ }
+ 
+ h2.oof { 
+    position: absolute; 
+    bottom: 10px; 
+    left: 0; 
+    width: 100%; 
+ }
+
+span.owo { 
+    color: yellow; 
+    /* font: bold 24px/45px Helvetica, Sans-Serif; */ 
+    letter-spacing: -1px;  
+    background: rgb(0, 0, 0); /* fallback color */
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px; 
+ }
+
+ h2 span.spacer {
+    padding:0 5px;
+ }
+
+.pool-bottom-font {
+    font-size: 20px;
+}

@@ -33,6 +33,7 @@ def profile(username):
     posts_iterable = copy.copy(posts)
     images = {}
     for p in posts_iterable:
-        links = re.findall(r"(https?://[^\s]+)", p.body)
+        links = re.findall(r'(?:http\:|https\:)?\/\/.*\.(?:png|jpg|PNG|JPG|jpeg|JPEG)', p.body)
+        #links = re.findall(r"(https?://[^\s]+)", p.body)
         images[p] = links
     return render_template("core/profile.html", title="Profile", posts=posts, images=images)

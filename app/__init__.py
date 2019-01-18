@@ -36,4 +36,7 @@ app.register_blueprint(auth_bp)
 from app.core import bp as core_bp
 app.register_blueprint(core_bp)
 
+#from app.pools import bp as pools_bp
+#app.register_blueprint(pools_bp)
+
 #from app import routes, models#, errors
