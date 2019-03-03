@@ -33,7 +33,7 @@ class RegistrationForm(FlaskForm):
         if "password" in pwd.lower():
             raise ValidationError("For the love of God. Why the hell would you use the password 'password'? Hell no. Not here you won't. Change it.")
         elif len(pwd) >= 8 and any(ch.isupper() for ch in pwd) and any(ch.islower() for ch in pwd) and any(ch.isdigit() for ch in pwd):
-            file = open("/var/www/html/flask_site/app/auth/cracked_passwords.txt", "r")
+            file = open("app/auth/cracked_passwords.txt", "r")
             for l in file:
                 if pwd in l:
                     file.close()
